@@ -10,33 +10,33 @@ import AppFooter from './components/app/AppFooter';
 import WorkspaceDialog from './components/workspace/WorkspaceDialog';
 
 const DEFAULT_JSON = {
-  "users": [
+  users: [
     {
-      "id": 1,
-      "name": "Alice Martin",
-      "email": "alice@example.com",
-      "age": 28,
-      "city": "Paris"
+      id: 1,
+      name: 'Alice Martin',
+      email: 'alice@example.com',
+      age: 28,
+      city: 'Paris',
     },
     {
-      "id": 2,
-      "name": "Bob Dupont",
-      "email": "bob@example.com",
-      "age": 34,
-      "city": "Lyon"
+      id: 2,
+      name: 'Bob Dupont',
+      email: 'bob@example.com',
+      age: 34,
+      city: 'Lyon',
     },
     {
-      "id": 3,
-      "name": "Charlie Bernard",
-      "email": "charlie@example.com",
-      "age": 25,
-      "city": "Marseille"
-    }
+      id: 3,
+      name: 'Charlie Bernard',
+      email: 'charlie@example.com',
+      age: 25,
+      city: 'Marseille',
+    },
   ],
-  "metadata": {
-    "total": 3,
-    "timestamp": "2026-01-30"
-  }
+  metadata: {
+    total: 3,
+    timestamp: '2026-01-30',
+  },
 };
 
 const GITHUB_URL = 'https://github.com/your-org/JsonPulse';
@@ -80,21 +80,25 @@ function App() {
     handleUpdateValue,
   } = workspace;
 
-  const muiTheme = useMemo(() => createTheme({
-    palette: {
-      mode: theme === 'dark' ? 'dark' : 'light',
-      background: {
-        default: theme === 'dark' ? '#0b0d10' : '#f8fafc',
-        paper: theme === 'dark' ? '#151922' : '#ffffff',
-      },
-    },
-    typography: {
-      fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
-    },
-    shape: {
-      borderRadius: 16,
-    },
-  }), [theme]);
+  const muiTheme = useMemo(
+    () =>
+      createTheme({
+        palette: {
+          mode: theme === 'dark' ? 'dark' : 'light',
+          background: {
+            default: theme === 'dark' ? '#0b0d10' : '#f8fafc',
+            paper: theme === 'dark' ? '#151922' : '#ffffff',
+          },
+        },
+        typography: {
+          fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+        },
+        shape: {
+          borderRadius: 16,
+        },
+      }),
+    [theme]
+  );
 
   return (
     <ThemeProvider theme={muiTheme}>

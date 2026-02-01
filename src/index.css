@@ -1,73 +1,77 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 :root {
-	--bg: #0b0d10;
-	--bg-soft: #12151b;
-	--surface: #151922;
-	--surface-2: #1a1f2a;
-	--border: rgba(255, 255, 255, 0.08);
-	--text: #f5f6f7;
-	--text-dim: #b4bcc8;
-	--accent: #ffffff;
-	--accent-strong: #f7f7f7;
-	--shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
-	--code-bg: #0f1218;
-	--success: #37d67a;
-	--danger: #ff5b5b;
-	--graph-bg: #0d1018;
-	--graph-grid: rgba(255, 255, 255, 0.08);
-	--node-bg: #141826;
-	--node-border: rgba(255, 255, 255, 0.12);
-	--node-text: #f3f4f6;
-	--type-string: #7dd3fc;
-	--type-number: #a7f3d0;
-	--type-boolean: #fbcfe8;
-	--type-object: #c4b5fd;
-	--type-null: #94a3b8;
+  --bg: #0b0d10;
+  --bg-soft: #12151b;
+  --surface: #151922;
+  --surface-2: #1a1f2a;
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #f5f6f7;
+  --text-dim: #b4bcc8;
+  --accent: #ffffff;
+  --accent-strong: #f7f7f7;
+  --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  --code-bg: #0f1218;
+  --success: #37d67a;
+  --danger: #ff5b5b;
+  --graph-bg: #0d1018;
+  --graph-grid: rgba(255, 255, 255, 0.08);
+  --node-bg: #141826;
+  --node-border: rgba(255, 255, 255, 0.12);
+  --node-text: #f3f4f6;
+  --type-string: #7dd3fc;
+  --type-number: #a7f3d0;
+  --type-boolean: #fbcfe8;
+  --type-object: #c4b5fd;
+  --type-null: #94a3b8;
 }
 
 body[data-theme='light'] {
-	--bg: #f8fafc;
-	--bg-soft: #f1f5f9;
-	--surface: #ffffff;
-	--surface-2: #f8fafc;
-	--border: rgba(15, 23, 42, 0.12);
-	--text: #0f172a;
-	--text-dim: #475569;
-	--accent: #0f172a;
-	--accent-strong: #111827;
-	--shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
-	--code-bg: #eef2f7;
-	--success: #0ea968;
-	--danger: #dc2626;
-	--graph-bg: #f5f7fb;
-	--graph-grid: rgba(15, 23, 42, 0.12);
-	--node-bg: #ffffff;
-	--node-border: rgba(15, 23, 42, 0.16);
-	--node-text: #0f172a;
-	--type-string: #0284c7;
-	--type-number: #059669;
-	--type-boolean: #be185d;
-	--type-object: #7c3aed;
-	--type-null: #64748b;
+  --bg: #f8fafc;
+  --bg-soft: #f1f5f9;
+  --surface: #ffffff;
+  --surface-2: #f8fafc;
+  --border: rgba(15, 23, 42, 0.12);
+  --text: #0f172a;
+  --text-dim: #475569;
+  --accent: #0f172a;
+  --accent-strong: #111827;
+  --shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+  --code-bg: #eef2f7;
+  --success: #0ea968;
+  --danger: #dc2626;
+  --graph-bg: #f5f7fb;
+  --graph-grid: rgba(15, 23, 42, 0.12);
+  --node-bg: #ffffff;
+  --node-border: rgba(15, 23, 42, 0.16);
+  --node-text: #0f172a;
+  --type-string: #0284c7;
+  --type-number: #059669;
+  --type-boolean: #be185d;
+  --type-object: #7c3aed;
+  --type-null: #64748b;
 }
 
 * {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-	font-family: 'Inter', system-ui, -apple-system, sans-serif;
-	background: var(--bg);
-	color: var(--text);
-	min-height: 100vh;
-	line-height: 1.6;
+  font-family:
+    'Inter',
+    system-ui,
+    -apple-system,
+    sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.6;
 }
 
 code,
 pre,
 textarea {
-	font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
 }

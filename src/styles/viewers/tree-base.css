@@ -38,15 +38,26 @@
   font-size: 0.85rem;
 }
 
-.tree-content::-webkit-scrollbar { width: 8px; }
-.tree-content::-webkit-scrollbar-track { background: var(--bg); }
+.tree-content::-webkit-scrollbar {
+  width: 8px;
+}
+.tree-content::-webkit-scrollbar-track {
+  background: var(--bg);
+}
 .tree-content::-webkit-scrollbar-thumb {
   background: var(--border);
   border-radius: 999px;
 }
 
 @media (max-width: 1024px) {
-  .tree-content { font-size: 0.85rem; padding: 1rem; }
-  .jtv-children { margin-left: 1rem; }
-  .jtv-child { padding-left: 1rem; }
+  .tree-content {
+    font-size: 0.85rem;
+    padding: 1rem;
+  }
+  .jtv-children {
+    margin-left: 1rem;
+  }
+  .jtv-child {
+    padding-left: 1rem;
+  }
 }

@@ -3,8 +3,8 @@ import { saveAs } from 'file-saver';
 
 // Couleurs du rapport
 const COLORS = {
-  primary: 'FF1F4E79',      // bleu foncé
-  primaryLight: 'FFD6E4F0',  // bleu clair
+  primary: 'FF1F4E79', // bleu foncé
+  primaryLight: 'FFD6E4F0', // bleu clair
   headerBg: 'FF1F4E79',
   headerText: 'FFFFFFFF',
   sectionBg: 'FFD6E4F0',
@@ -62,10 +62,12 @@ function collectSubArrays(obj, prefix = '') {
  * Formate un chemin JSON en titre lisible: "users > 0 > address"
  */
 function formatPath(path) {
-  return path
-    .replace(/^root\.?/, '')
-    .replace(/\./g, ' > ')
-    .replace(/\[(\d+)\]/g, ' > $1') || 'Racine';
+  return (
+    path
+      .replace(/^root\.?/, '')
+      .replace(/\./g, ' > ')
+      .replace(/\[(\d+)\]/g, ' > $1') || 'Racine'
+  );
 }
 
 /**
@@ -73,7 +75,8 @@ function formatPath(path) {
  */
 function styleValueCell(cell, value, rowIndex) {
   cell.fill = {
-    type: 'pattern', pattern: 'solid',
+    type: 'pattern',
+    pattern: 'solid',
     fgColor: { argb: rowIndex % 2 === 0 ? COLORS.zebraDark : COLORS.zebraLight },
   };
   cell.border = THIN_BORDER;
@@ -283,7 +286,8 @@ function writeObjectSection(ws, obj, path, startRow) {
     keyCell.value = key;
     keyCell.font = { bold: true, color: { argb: COLORS.text }, size: 10 };
     keyCell.fill = {
-      type: 'pattern', pattern: 'solid',
+      type: 'pattern',
+      pattern: 'solid',
       fgColor: { argb: idx % 2 === 0 ? COLORS.zebraDark : COLORS.zebraLight },
     };
     keyCell.border = THIN_BORDER;
@@ -324,7 +328,8 @@ function writePrimitiveArray(ws, array, path, startRow) {
     idxCell.value = idx + 1;
     idxCell.font = { color: { argb: COLORS.textDim }, size: 10 };
     idxCell.fill = {
-      type: 'pattern', pattern: 'solid',
+      type: 'pattern',
+      pattern: 'solid',
       fgColor: { argb: idx % 2 === 0 ? COLORS.zebraDark : COLORS.zebraLight },
     };
     idxCell.border = THIN_BORDER;

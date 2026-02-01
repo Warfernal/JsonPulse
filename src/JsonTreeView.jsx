@@ -76,7 +76,9 @@ function JsonNode({ data, name, level, forceExpand }) {
       <div className="jtv-line">
         <span className="jtv-key">{name}</span>
         <span className="jtv-punct">:</span>
-        <span className="jtv-null" onClick={() => handleCopy(null)}>null</span>
+        <span className="jtv-null" onClick={() => handleCopy(null)}>
+          null
+        </span>
       </div>
     );
   }
@@ -116,14 +118,15 @@ function JsonNode({ data, name, level, forceExpand }) {
       <div className="jtv-line">
         <span className="jtv-key">{name}</span>
         <span className="jtv-punct">:</span>
-        <span className="jtv-bracket">{openBracket}{closeBracket}</span>
+        <span className="jtv-bracket">
+          {openBracket}
+          {closeBracket}
+        </span>
       </div>
     );
   }
 
-  const entries = isArray
-    ? data.map((item, idx) => [`[${idx}]`, item])
-    : Object.entries(data);
+  const entries = isArray ? data.map((item, idx) => [`[${idx}]`, item]) : Object.entries(data);
 
   return (
     <div className="jtv-node">

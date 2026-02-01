@@ -13,12 +13,18 @@ function Hero({ onOpenEditor, onLoadExample, githubUrl, donateUrl }) {
         </p>
         <div className="hero-actions">
           <Button onClick={onOpenEditor}>Try the editor</Button>
-          <Button variant="secondary" onClick={onLoadExample}>Load example</Button>
+          <Button variant="secondary" onClick={onLoadExample}>
+            Load example
+          </Button>
         </div>
         <div className="hero-links">
-          <a href={githubUrl} target="_blank" rel="noreferrer">Open-source on GitHub</a>
+          <a href={githubUrl} target="_blank" rel="noreferrer">
+            Open-source on GitHub
+          </a>
           <span>•</span>
-          <a href={donateUrl} target="_blank" rel="noreferrer">Support the project</a>
+          <a href={donateUrl} target="_blank" rel="noreferrer">
+            Support the project
+          </a>
         </div>
         <HeroStats />
       </div>
@@ -26,7 +32,7 @@ function Hero({ onOpenEditor, onLoadExample, githubUrl, donateUrl }) {
         <div className="preview-card">
           <div className="preview-header">Live preview</div>
           <pre className="preview-code">
-{`{
+            {`{
   "users": [
     { "id": 1, "name": "Alice" },
     { "id": 2, "name": "Bob" }

@@ -1,4 +1,14 @@
-import { Dialog, AppBar, Toolbar, Typography, Box, Button, Paper, Stack, TextField } from '@mui/material';
+import {
+  Dialog,
+  AppBar,
+  Toolbar,
+  Typography,
+  Box,
+  Button,
+  Paper,
+  Stack,
+  TextField,
+} from '@mui/material';
 import TreeViewer from '../../TreeViewer';
 
 function WorkspaceDialog({
@@ -20,11 +30,20 @@ function WorkspaceDialog({
 }) {
   return (
     <Dialog open={open} onClose={onClose} fullScreen>
-      <AppBar position="sticky" color="default" elevation={0} sx={{ borderBottom: '1px solid', borderColor: 'divider' }}>
+      <AppBar
+        position="sticky"
+        color="default"
+        elevation={0}
+        sx={{ borderBottom: '1px solid', borderColor: 'divider' }}
+      >
         <Toolbar sx={{ gap: 2 }}>
-          <Typography variant="h6" sx={{ fontWeight: 700 }}>Workspace</Typography>
+          <Typography variant="h6" sx={{ fontWeight: 700 }}>
+            Workspace
+          </Typography>
           <Box sx={{ flexGrow: 1 }} />
-          <Button variant="outlined" onClick={onClose}>Close</Button>
+          <Button variant="outlined" onClick={onClose}>
+            Close
+          </Button>
         </Toolbar>
       </AppBar>
       <Box
@@ -44,9 +63,18 @@ function WorkspaceDialog({
               minWidth: 0,
             }}
           >
-            <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 1 }}>
-              <Typography variant="caption" color={error ? 'error' : 'text.secondary'}>JSON input</Typography>
-              <Typography variant="caption" color="text.secondary">Editable in fullscreen</Typography>
+            <Stack
+              direction="row"
+              justifyContent="space-between"
+              alignItems="center"
+              sx={{ mb: 1 }}
+            >
+              <Typography variant="caption" color={error ? 'error' : 'text.secondary'}>
+                JSON input
+              </Typography>
+              <Typography variant="caption" color="text.secondary">
+                Editable in fullscreen
+              </Typography>
             </Stack>
             <TextField
               multiline
@@ -97,8 +125,15 @@ function WorkspaceDialog({
               minWidth: 0,
             }}
           >
-            <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 1 }}>
-              <Typography variant="caption" color="text.secondary">Graph view</Typography>
+            <Stack
+              direction="row"
+              justifyContent="space-between"
+              alignItems="center"
+              sx={{ mb: 1 }}
+            >
+              <Typography variant="caption" color="text.secondary">
+                Graph view
+              </Typography>
               <TextField
                 size="small"
                 placeholder="Search nodes"

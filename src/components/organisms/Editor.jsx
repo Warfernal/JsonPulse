@@ -105,12 +105,7 @@ function Editor({
         </div>
       </div>
 
-      <ExportBar
-        onExport={onExport}
-        canExport={canExport}
-        loading={loading}
-        success={success}
-      />
+      <ExportBar onExport={onExport} canExport={canExport} loading={loading} success={success} />
     </section>
   );
 }

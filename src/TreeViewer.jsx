@@ -40,13 +40,23 @@ const NODE_HEIGHT = 44;
 
 function getTypeInfo(value) {
   if (value === null) return { type: 'null', color: 'var(--type-null)', label: 'null' };
-  if (Array.isArray(value)) return { type: 'array', color: 'var(--type-object)', label: `Array[${value.length}]` };
+  if (Array.isArray(value))
+    return { type: 'array', color: 'var(--type-object)', label: `Array[${value.length}]` };
   switch (typeof value) {
-    case 'string': return { type: 'string', color: 'var(--type-string)', label: `"${value}"` };
-    case 'number': return { type: 'number', color: 'var(--type-number)', label: String(value) };
-    case 'boolean': return { type: 'boolean', color: 'var(--type-boolean)', label: String(value) };
-    case 'object': return { type: 'object', color: 'var(--type-object)', label: `Object{${Object.keys(value).length}}` };
-    default: return { type: 'unknown', color: 'var(--type-null)', label: String(value) };
+    case 'string':
+      return { type: 'string', color: 'var(--type-string)', label: `"${value}"` };
+    case 'number':
+      return { type: 'number', color: 'var(--type-number)', label: String(value) };
+    case 'boolean':
+      return { type: 'boolean', color: 'var(--type-boolean)', label: String(value) };
+    case 'object':
+      return {
+        type: 'object',
+        color: 'var(--type-object)',
+        label: `Object{${Object.keys(value).length}}`,
+      };
+    default:
+      return { type: 'unknown', color: 'var(--type-null)', label: String(value) };
   }
 }
 
@@ -71,7 +81,13 @@ function jsonToGraph(data, key = 'root', parentId = null, nodes = [], edges = []
     });
 
     if (parentId) {
-      edges.push({ id: `e-${parentId}-${id}`, source: parentId, target: id, type: 'smoothstep', animated: false });
+      edges.push({
+        id: `e-${parentId}-${id}`,
+        source: parentId,
+        target: id,
+        type: 'smoothstep',
+        animated: false,
+      });
     }
 
     const entries = Array.isArray(data) ? data.map((v, i) => [String(i), v]) : Object.entries(data);
@@ -95,7 +111,13 @@ function jsonToGraph(data, key = 'root', parentId = null, nodes = [], edges = []
     });
 
     if (parentId) {
-      edges.push({ id: `e-${parentId}-${id}`, source: parentId, target: id, type: 'smoothstep', animated: false });
+      edges.push({
+        id: `e-${parentId}-${id}`,
+        source: parentId,
+        target: id,
+        type: 'smoothstep',
+        animated: false,
+      });
     }
   }
 
@@ -126,11 +148,24 @@ function JsonNodeComponent({ data }) {
   const matchClass = data.isMatch ? 'match' : data.isDim ? 'dim' : '';
   const focusClass = data.isFocus ? 'focus' : '';
   return (
-    <div className={`json-graph-node ${data.isLeaf ? 'leaf' : 'branch'} ${matchClass} ${focusClass}`} style={{ borderColor: data.color }}>
-      <Handle type="target" position={Position.Top} style={{ background: data.color, width: 6, height: 6 }} />
+    <div
+      className={`json-graph-node ${data.isLeaf ? 'leaf' : 'branch'} ${matchClass} ${focusClass}`}
+      style={{ borderColor: data.color }}
+    >
+      <Handle
+        type="target"
+        position={Position.Top}
+        style={{ background: data.color, width: 6, height: 6 }}
+      />
       <div className="node-key">{data.label}</div>
-      <div className="node-type" style={{ color: data.color }}>{data.typeLabel}</div>
-      <Handle type="source" position={Position.Bottom} style={{ background: data.color, width: 6, height: 6 }} />
+      <div className="node-type" style={{ color: data.color }}>
+        {data.typeLabel}
+      </div>
+      <Handle
+        type="source"
+        position={Position.Bottom}
+        style={{ background: data.color, width: 6, height: 6 }}
+      />
     </div>
   );
 }
@@ -358,7 +393,11 @@ function TreeViewer({ data, searchQuery = '', focusPath = '', onOpenEditor, onUp
           </Tooltip>
           <Tooltip title={fullscreen ? 'Exit fullscreen' : 'Fullscreen'}>
             <IconButton size="small" onClick={toggleFullscreen} aria-label="Toggle fullscreen">
-              {fullscreen ? <FullscreenExitIcon fontSize="small" /> : <FullscreenIcon fontSize="small" />}
+              {fullscreen ? (
+                <FullscreenExitIcon fontSize="small" />
+              ) : (
+                <FullscreenIcon fontSize="small" />
+              )}
             </IconButton>
           </Tooltip>
           <span className="viewer-status"></span>
@@ -427,10 +466,16 @@ function TreeViewer({ data, searchQuery = '', focusPath = '', onOpenEditor, onUp
         >
           <MenuList dense>
             <MenuItem onClick={handleCopyPath}>Copy path</MenuItem>
-            <MenuItem onClick={handleCopyValue} disabled={typeof selectedNode?.data?.rawValue === 'undefined'}>
+            <MenuItem
+              onClick={handleCopyValue}
+              disabled={typeof selectedNode?.data?.rawValue === 'undefined'}
+            >
               Copy value
             </MenuItem>
-            <MenuItem onClick={handleEditValue} disabled={typeof selectedNode?.data?.rawValue === 'undefined'}>
+            <MenuItem
+              onClick={handleEditValue}
+              disabled={typeof selectedNode?.data?.rawValue === 'undefined'}
+            >
               Edit value
             </MenuItem>
             <Divider />
@@ -457,7 +502,9 @@ function TreeViewer({ data, searchQuery = '', focusPath = '', onOpenEditor, onUp
           </DialogContent>
           <DialogActions>
             <Button onClick={() => setEditOpen(false)}>Cancel</Button>
-            <Button variant="contained" onClick={handleEditSave}>Save</Button>
+            <Button variant="contained" onClick={handleEditSave}>
+              Save
+            </Button>
           </DialogActions>
         </Dialog>
       </div>
