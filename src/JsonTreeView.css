@@ -1,0 +1,219 @@
+/* JsonTreeView */
+.jtv-terminal {
+  background: var(--terminal-surface);
+  border: 1px solid var(--terminal-border);
+  position: relative;
+  font-family: 'JetBrains Mono', monospace;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.jtv-empty {
+  padding: 4rem 2rem;
+  text-align: center;
+  color: var(--terminal-text-dim);
+}
+
+.jtv-empty-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  opacity: 0.3;
+  animation: jtv-float 3s ease-in-out infinite;
+}
+
+@keyframes jtv-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.jtv-empty-text {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+.jtv-empty-hint {
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
+
+/* Actions */
+.jtv-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+
+.jtv-action-btn {
+  background: transparent;
+  border: 1px solid var(--terminal-border);
+  color: var(--terminal-text-dim);
+  padding: 0.25rem 0.75rem;
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  letter-spacing: 0.05em;
+}
+
+.jtv-action-btn:hover {
+  border-color: var(--terminal-accent);
+  color: var(--terminal-accent);
+  background: rgba(0, 255, 159, 0.05);
+}
+
+/* Content */
+.jtv-content {
+  padding: 1.5rem;
+  max-height: 500px;
+  overflow-y: auto;
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+/* Lines */
+.jtv-line {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0;
+  position: relative;
+}
+
+.jtv-node {
+  display: block;
+}
+
+.jtv-expandable {
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  margin: -0.25rem -0.5rem;
+  border-radius: 2px;
+  transition: all 0.15s;
+  user-select: none;
+}
+
+.jtv-expandable:hover {
+  background: rgba(0, 255, 159, 0.08);
+}
+
+/* Chevron */
+.jtv-chevron {
+  color: var(--terminal-text-dim);
+  font-size: 0.7rem;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-block;
+  width: 12px;
+}
+
+.jtv-chevron.expanded {
+  transform: rotate(90deg);
+}
+
+/* Keys & values */
+.jtv-key {
+  color: var(--terminal-accent);
+  font-weight: 600;
+}
+
+.jtv-punct {
+  color: var(--terminal-text-dim);
+  opacity: 0.7;
+}
+
+.jtv-string { color: var(--terminal-green); }
+.jtv-number { color: var(--terminal-yellow); }
+.jtv-boolean { color: var(--terminal-blue); font-weight: 600; }
+.jtv-null { color: var(--terminal-text-dim); font-style: italic; }
+
+.jtv-copyable {
+  cursor: pointer;
+  padding: 0.15rem 0.4rem;
+  margin: -0.15rem -0.4rem;
+  border-radius: 2px;
+  transition: all 0.15s;
+  position: relative;
+}
+
+.jtv-copyable:hover {
+  background: rgba(0, 255, 159, 0.1);
+}
+
+.jtv-copyable:hover::after {
+  content: '◀ COPY';
+  position: absolute;
+  right: -60px;
+  font-size: 0.65rem;
+  color: var(--terminal-accent);
+  opacity: 0.6;
+  letter-spacing: 0.05em;
+}
+
+.jtv-bracket {
+  color: var(--terminal-text-dim);
+  font-weight: 700;
+}
+
+.jtv-count {
+  color: var(--terminal-text-dim);
+  font-size: 0.75rem;
+  font-style: italic;
+  opacity: 0.5;
+  margin: 0 0.5rem;
+}
+
+/* Children */
+.jtv-children {
+  margin-left: 1.5rem;
+  border-left: 1px solid var(--terminal-border);
+  padding-left: 0;
+  animation: jtv-slideIn 0.2s ease-out;
+}
+
+@keyframes jtv-slideIn {
+  from { opacity: 0; transform: translateX(-10px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.jtv-child {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.jtv-child:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.jtv-pipe {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 12px;
+  height: 1px;
+  background: var(--terminal-border);
+}
+
+.jtv-child:hover .jtv-pipe {
+  background: var(--terminal-accent);
+  box-shadow: 0 0 5px var(--terminal-accent-dim);
+}
+
+.jtv-closing {
+  margin-left: 0;
+  padding-left: 0;
+  opacity: 0.8;
+}
+
+/* Scrollbar */
+.jtv-content::-webkit-scrollbar { width: 8px; }
+.jtv-content::-webkit-scrollbar-track { background: var(--terminal-bg); }
+.jtv-content::-webkit-scrollbar-thumb { background: var(--terminal-border); border: 2px solid var(--terminal-bg); }
+.jtv-content::-webkit-scrollbar-thumb:hover { background: var(--terminal-accent); box-shadow: var(--terminal-glow); }
+
+@media (max-width: 1024px) {
+  .jtv-content { font-size: 0.85rem; padding: 1rem; }
+  .jtv-children { margin-left: 1rem; }
+  .jtv-child { padding-left: 1rem; }
+}
