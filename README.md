@@ -34,19 +34,6 @@ npm run dev
 
 ✅ **Le site s'ouvre automatiquement sur http://localhost:3000**
 
-## 📝 Différences avec la version précédente
-
-### Avant (Create React App)
-- ❌ react-scripts obsolète
-- ❌ Bugs de dépendances
-- ❌ Lent à démarrer
-
-### Maintenant (Vite)
-- ✅ Moderne et maintenu
-- ✅ Aucun conflit de dépendances
-- ✅ Démarrage ultra-rapide (< 1 seconde)
-- ✅ Hot reload instantané
-
 ## 🛠️ Commandes disponibles
 
 ```bash
@@ -71,47 +58,6 @@ json-to-excel-converter/
 └── README.md
 ```
 
-## 🌐 Déploiement sur Vercel (GRATUIT)
-
-### Méthode automatique (recommandée)
-
-1. **Pousser sur GitHub**
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial commit"
-   git remote add origin https://github.com/VOTRE-USERNAME/json-excel.git
-   git push -u origin main
-   ```
-
-2. **Déployer sur Vercel**
-   - Aller sur https://vercel.com
-   - "Import Project" → Sélectionner votre repo
-   - Vite est **auto-détecté** ✨
-   - Cliquer "Deploy"
-
-3. **C'est en ligne !**
-   - URL: `https://votre-projet.vercel.app`
-   - Déploiement automatique à chaque `git push`
-
-## 🎨 Personnalisation
-
-### Changer les couleurs
-
-Éditez `src/App.css`:
-```css
-.header {
-  background-color: #2c3e50; /* Changez cette couleur */
-}
-
-.export-button {
-  background-color: #27ae60; /* Changez cette couleur */
-}
-```
-
-### Modifier les textes
-
-Éditez `src/App.jsx` et changez les textes dans le JSX.
 
 ## 🔧 Résolution de problèmes
 
@@ -125,8 +71,6 @@ npm install
 ### Port 3000 occupé
 Vite utilisera automatiquement le port 3001, 3002, etc.
 
-### Import errors
-Vite utilise ESM (import/export). Assurez-vous d'avoir `"type": "module"` dans package.json.
 
 ## 📊 Technologies utilisées
 
@@ -135,22 +79,9 @@ Vite utilise ESM (import/export). Assurez-vous d'avoir `"type": "module"` dans p
 - **ExcelJS** - Génération Excel
 - **File-saver** - Téléchargement fichiers
 
-## 🎓 Améliorations futures possibles
 
-- [ ] Upload fichier JSON
-- [ ] Export CSV
-- [ ] Sélection branches à exporter (checkboxes)
-- [ ] Thème sombre
-- [ ] Historique conversions
-- [ ] Mode premium avec paiement
 
-## 💰 Coûts
 
-- **Développement**: 0€
-- **Hébergement Vercel**: 0€
-- **Domaine personnalisé**: ~10€/an (optionnel)
-
-**Total: 0€/mois** jusqu'à avoir beaucoup de trafic !
 
 ## 🆘 Besoin d'aide ?
 
