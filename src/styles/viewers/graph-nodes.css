@@ -1,0 +1,52 @@
+.json-graph-node {
+  background: var(--node-bg);
+  border: 1px solid var(--node-border);
+  border-radius: 12px;
+  padding: 8px 12px;
+  min-width: 140px;
+  max-width: 260px;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.json-graph-node:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 26px rgba(0, 0, 0, 0.25);
+}
+
+.json-graph-node.leaf {
+  border-style: dashed;
+}
+
+.json-graph-node.match {
+  box-shadow: 0 0 0 2px var(--accent-strong), 0 16px 30px rgba(0, 0, 0, 0.25);
+}
+
+.json-graph-node.focus {
+  box-shadow: 0 0 0 2px var(--success), 0 16px 30px rgba(0, 0, 0, 0.25);
+}
+
+.json-graph-node.dim {
+  opacity: 0.4;
+}
+
+.node-key {
+  color: var(--node-text);
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.node-type {
+  font-size: 10px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  opacity: 0.85;
+}

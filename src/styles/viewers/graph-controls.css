@@ -1,0 +1,43 @@
+.graph-container .react-flow__edge-path {
+  stroke: rgba(148, 163, 184, 0.5);
+  stroke-width: 1.4;
+}
+
+.graph-container .react-flow__controls,
+.graph-container .react-flow__controls.graph-controls {
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 4px;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(10px);
+}
+
+.graph-container .react-flow__controls-button {
+  background: transparent;
+  border-color: var(--border);
+  color: var(--text);
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  fill: currentColor;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.graph-container .react-flow__controls-button:hover {
+  background: var(--bg-soft);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.18);
+}
+
+.graph-container .react-flow__controls-button:active {
+  transform: translateY(0);
+}
+
+.graph-container .react-flow__minimap,
+.graph-container .react-flow__minimap.graph-minimap {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.18);
+  overflow: hidden;
+}

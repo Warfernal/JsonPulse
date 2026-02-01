@@ -1,0 +1,109 @@
+.graph-view {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 520px;
+  height: 100%;
+}
+
+.viewer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1.2rem;
+  border-bottom: 1px solid var(--border);
+  background: rgba(0, 0, 0, 0.12);
+}
+
+body[data-theme='light'] .viewer-header {
+  background: rgba(248, 250, 252, 0.8);
+}
+
+.viewer-title {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  font-weight: 600;
+}
+
+.viewer-subtitle {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.viewer-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.icon-btn {
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  padding: 0.3rem 0.6rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.viewer-status {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--success);
+  box-shadow: 0 0 8px rgba(55, 214, 122, 0.7);
+}
+
+.viewer-status.idle {
+  background: var(--text-dim);
+  box-shadow: none;
+}
+
+.graph-container {
+  width: 100%;
+  flex: 1;
+  min-height: 420px;
+  height: 100%;
+  position: relative;
+}
+
+.graph-container .react-flow {
+  background: var(--graph-bg);
+}
+
+.graph-view.fullscreen {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  border-radius: 0;
+}
+
+.graph-view.fullscreen .graph-container {
+  height: calc(100vh - 58px);
+}
+
+.graph-search-bar {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 5;
+}
+
+.graph-search-bar .MuiTextField-root {
+  width: 240px;
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  border-radius: 12px;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+@media (max-width: 1024px) {
+  .graph-view {
+    min-height: 420px;
+  }
+}

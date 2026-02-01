@@ -1,0 +1,123 @@
+.jtv-line {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0;
+  position: relative;
+}
+
+.jtv-node {
+  display: block;
+}
+
+.jtv-expandable {
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  margin: -0.25rem -0.5rem;
+  border-radius: 6px;
+  transition: background 0.15s;
+  user-select: none;
+}
+
+.jtv-expandable:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.jtv-chevron {
+  color: var(--text-dim);
+  font-size: 0.7rem;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-block;
+  width: 12px;
+}
+
+.jtv-chevron.expanded {
+  transform: rotate(90deg);
+}
+
+.jtv-key {
+  color: var(--accent-strong);
+  font-weight: 600;
+}
+
+.jtv-punct {
+  color: var(--text-dim);
+  opacity: 0.7;
+}
+
+.jtv-string { color: var(--type-string); }
+.jtv-number { color: var(--type-number); }
+.jtv-boolean { color: var(--type-boolean); font-weight: 600; }
+.jtv-null { color: var(--type-null); font-style: italic; }
+
+.jtv-copyable {
+  cursor: pointer;
+  padding: 0.15rem 0.4rem;
+  margin: -0.15rem -0.4rem;
+  border-radius: 6px;
+  transition: background 0.15s;
+  position: relative;
+}
+
+.jtv-copyable:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.jtv-copyable:hover::after {
+  content: 'COPY';
+  position: absolute;
+  right: -50px;
+  font-size: 0.65rem;
+  color: var(--text-dim);
+  opacity: 0.7;
+  letter-spacing: 0.08em;
+}
+
+.jtv-bracket {
+  color: var(--text-dim);
+  font-weight: 700;
+}
+
+.jtv-count {
+  color: var(--text-dim);
+  font-size: 0.75rem;
+  font-style: italic;
+  opacity: 0.6;
+  margin: 0 0.5rem;
+}
+
+.jtv-children {
+  margin-left: 1.5rem;
+  border-left: 1px solid var(--border);
+  padding-left: 0;
+  animation: jtv-slideIn 0.2s ease-out;
+}
+
+@keyframes jtv-slideIn {
+  from { opacity: 0; transform: translateX(-10px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.jtv-child {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.jtv-pipe {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 12px;
+  height: 1px;
+  background: var(--border);
+}
+
+.jtv-child:hover .jtv-pipe {
+  background: var(--accent-strong);
+}
+
+.jtv-closing {
+  margin-left: 0;
+  padding-left: 0;
+  opacity: 0.8;
+}

@@ -6,18 +6,20 @@ function JsonTreeView({ data }) {
 
   if (!data) {
     return (
-      <div className="jtv-terminal">
-        <div className="panel-header">
-          <span className="panel-prompt">▸</span>
-          <span className="panel-title">TREE_VIEW</span>
-          <div className="panel-indicator">
-            <span className="idle-dot">◯</span>
+      <div className="tree-view">
+        <div className="viewer-header">
+          <div className="viewer-title">
+            <span>Tree view</span>
+            <span className="viewer-subtitle">Awaiting data</span>
+          </div>
+          <div className="viewer-actions">
+            <span className="viewer-status idle"></span>
           </div>
         </div>
-        <div className="jtv-empty">
-          <div className="jtv-empty-icon">◬</div>
-          <div className="jtv-empty-text">AWAITING_DATA</div>
-          <div className="jtv-empty-hint">Parse valid JSON to visualize</div>
+        <div className="tree-empty">
+          <div className="tree-empty-icon">▤</div>
+          <div className="tree-empty-title">Paste valid JSON to start</div>
+          <div className="tree-empty-text">Expand nodes and copy values.</div>
         </div>
       </div>
     );
@@ -34,20 +36,23 @@ function JsonTreeView({ data }) {
   };
 
   return (
-    <div className="jtv-terminal">
-      <div className="panel-header">
-        <span className="panel-prompt">▸</span>
-        <span className="panel-title">TREE_VIEW</span>
-        <div className="jtv-actions">
-          <button className="jtv-action-btn" onClick={handleExpandAll} title="Expand all">
-            [+]
+    <div className="tree-view">
+      <div className="viewer-header">
+        <div className="viewer-title">
+          <span>Tree view</span>
+          <span className="viewer-subtitle">Structured explorer</span>
+        </div>
+        <div className="viewer-actions">
+          <button className="icon-btn" onClick={handleExpandAll} title="Expand all">
+            +
           </button>
-          <button className="jtv-action-btn" onClick={handleCollapseAll} title="Collapse all">
-            [-]
+          <button className="icon-btn" onClick={handleCollapseAll} title="Collapse all">
+            −
           </button>
+          <span className="viewer-status"></span>
         </div>
       </div>
-      <div className="jtv-content">
+      <div className="tree-content">
         <JsonNode data={data} name="root" level={0} forceExpand={expandAll} />
       </div>
     </div>
