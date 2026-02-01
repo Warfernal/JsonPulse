@@ -1,0 +1,41 @@
+name: Code Quality
+
+# QUAND lancer la pipeline ?
+on:
+  push:
+    branches: [master]        # À chaque push sur master
+  pull_request:
+    branches: [master]        # À chaque PR vers master
+
+jobs:
+  quality:
+    name: Lint, Format & Build
+    runs-on: ubuntu-latest    # Tourne sur une machine Linux hébergée par GitHub (gratuit)
+
+    steps:
+      # 1. Récupère le code du repo
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. Installe Node.js 18
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'npm'        # Cache les dépendances pour accélérer les prochains runs
+
+      # 3. Installe les dépendances (npm ci = install propre, identique au lock file)
+      - name: Install dependencies
+        run: npm ci
+
+      # 4. Vérifie les erreurs de code avec ESLint
+      - name: Lint
+        run: npm run lint
+
+      # 5. Vérifie le formatage avec Prettier
+      - name: Check formatting
+        run: npm run format:check
+
+      # 6. Vérifie que le projet compile sans erreur
+      - name: Build
+        run: npm run build

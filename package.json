@@ -5,22 +5,30 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint src/",
+    "lint:fix": "eslint src/ --fix",
+    "format:check": "prettier --check src/",
+    "format": "prettier --write src/"
   },
   "dependencies": {
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "@mui/icons-material": "^5.15.21",
+    "@mui/material": "^5.15.21",
     "@xyflow/react": "^12.10.0",
     "dagre": "^0.8.5",
     "exceljs": "^4.4.0",
     "file-saver": "^2.0.5",
-    "@mui/material": "^5.15.21",
-    "@mui/icons-material": "^5.15.21",
-    "@emotion/react": "^11.13.3",
-    "@emotion/styled": "^11.13.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.4",
+    "eslint": "^9.39.2",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "prettier": "^3.8.1",
     "vite": "^5.4.11"
   }
 }
