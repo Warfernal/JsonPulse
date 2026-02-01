@@ -405,6 +405,8 @@ function TreeViewer({ data, searchQuery = '', onOpenEditor, onUpdateValue }) {
           onClose={closeNodeMenu}
           anchorReference="anchorPosition"
           anchorPosition={anchorPosition || { top: 0, left: 0 }}
+          disablePortal
+          container={containerRef.current}
         >
           <MenuList dense>
             <MenuItem onClick={handleCopyPath}>Copy path</MenuItem>
@@ -418,7 +420,14 @@ function TreeViewer({ data, searchQuery = '', onOpenEditor, onUpdateValue }) {
             <MenuItem onClick={handleOpenEditor}>Open in editor</MenuItem>
           </MenuList>
         </Popover>
-        <Dialog open={editOpen} onClose={() => setEditOpen(false)} maxWidth="sm" fullWidth>
+        <Dialog
+          open={editOpen}
+          onClose={() => setEditOpen(false)}
+          maxWidth="sm"
+          fullWidth
+          disablePortal
+          container={containerRef.current}
+        >
           <DialogTitle>Edit value</DialogTitle>
           <DialogContent>
             <TextField
