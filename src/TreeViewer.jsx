@@ -124,8 +124,9 @@ function layoutGraph(nodes, edges) {
 
 function JsonNodeComponent({ data }) {
   const matchClass = data.isMatch ? 'match' : data.isDim ? 'dim' : '';
+  const focusClass = data.isFocus ? 'focus' : '';
   return (
-    <div className={`json-graph-node ${data.isLeaf ? 'leaf' : 'branch'} ${matchClass}`} style={{ borderColor: data.color }}>
+    <div className={`json-graph-node ${data.isLeaf ? 'leaf' : 'branch'} ${matchClass} ${focusClass}`} style={{ borderColor: data.color }}>
       <Handle type="target" position={Position.Top} style={{ background: data.color, width: 6, height: 6 }} />
       <div className="node-key">{data.label}</div>
       <div className="node-type" style={{ color: data.color }}>{data.typeLabel}</div>
@@ -136,7 +137,7 @@ function JsonNodeComponent({ data }) {
 
 const nodeTypes = { jsonNode: JsonNodeComponent };
 
-function TreeViewer({ data, searchQuery = '', onOpenEditor, onUpdateValue }) {
+function TreeViewer({ data, searchQuery = '', focusPath = '', onOpenEditor, onUpdateValue }) {
   const [fullscreen, setFullscreen] = useState(false);
   const containerRef = useRef(null);
   const [flowInstance, setFlowInstance] = useState(null);
@@ -198,16 +199,18 @@ function TreeViewer({ data, searchQuery = '', onOpenEditor, onUpdateValue }) {
   }, [nodes, normalizedQuery]);
 
   const displayNodes = useMemo(() => {
-    if (!normalizedQuery) return nodes;
+    const focusId = focusPath || '';
+    if (!normalizedQuery && !focusId) return nodes;
     return nodes.map((node) => ({
       ...node,
       data: {
         ...node.data,
         isMatch: matchIds.has(node.id),
-        isDim: !matchIds.has(node.id),
+        isDim: normalizedQuery ? !matchIds.has(node.id) : false,
+        isFocus: focusId && node.id === focusId,
       },
     }));
-  }, [nodes, normalizedQuery, matchIds]);
+  }, [nodes, normalizedQuery, matchIds, focusPath]);
 
   React.useEffect(() => {
     if (!initialNodes.length || !flowInstance) return;
@@ -230,6 +233,20 @@ function TreeViewer({ data, searchQuery = '', onOpenEditor, onUpdateValue }) {
     });
     return () => cancelAnimationFrame(id);
   }, [matchIds, nodes, flowInstance]);
+
+  React.useEffect(() => {
+    if (!flowInstance || !focusPath) return;
+    const focusNode = nodes.find((node) => node.id === focusPath);
+    if (!focusNode) return;
+    const id = requestAnimationFrame(() => {
+      flowInstance.fitView({ nodes: [focusNode], padding: 0.4, duration: 450 });
+      const zoom = flowInstance.getZoom?.() ?? 1;
+      if (zoom < 0.9) {
+        flowInstance.zoomTo?.(1.1, { duration: 250 });
+      }
+    });
+    return () => cancelAnimationFrame(id);
+  }, [focusPath, nodes, flowInstance]);
 
   const handleNodeClick = useCallback((event, node) => {
     if (!node) return;

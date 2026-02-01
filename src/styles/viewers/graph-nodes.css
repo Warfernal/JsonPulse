@@ -26,6 +26,10 @@
   box-shadow: 0 0 0 2px var(--accent-strong), 0 16px 30px rgba(0, 0, 0, 0.25);
 }
 
+.json-graph-node.focus {
+  box-shadow: 0 0 0 2px var(--success), 0 16px 30px rgba(0, 0, 0, 0.25);
+}
+
 .json-graph-node.dim {
   opacity: 0.4;
 }
