@@ -1,0 +1,356 @@
+@layer components {
+  .app {
+    min-height: 100vh;
+    background: radial-gradient(circle at top, rgba(255, 255, 255, 0.05), transparent 45%), var(--bg);
+  }
+
+  .nav {
+    @apply sticky top-0 z-10 border-b;
+    border-color: var(--border);
+    backdrop-filter: blur(12px);
+    background: rgba(0, 0, 0, 0.35);
+  }
+
+  body[data-theme='light'] .nav {
+    background: rgba(248, 250, 252, 0.8);
+  }
+
+  .nav-inner {
+    @apply max-w-5xl mx-auto px-8 py-4 flex items-center justify-between gap-6;
+  }
+
+  .logo {
+    @apply flex items-center gap-2 font-bold tracking-wide;
+  }
+
+  .logo-mark {
+    @apply text-lg;
+    color: var(--accent-strong);
+  }
+
+  .nav-links {
+    @apply flex gap-6 text-sm;
+    color: var(--text-dim);
+  }
+
+  .nav-links a:hover {
+    color: var(--text);
+  }
+
+  .nav-actions {
+    @apply flex items-center gap-3;
+  }
+
+  .theme-toggle {
+    @apply rounded-full border px-3 py-2 text-xs;
+    border-color: var(--border);
+    background: transparent;
+    color: var(--text);
+  }
+
+  .link-btn {
+    @apply rounded-full border px-3 py-2 text-xs font-semibold transition;
+    border-color: var(--border);
+    background: transparent;
+    color: var(--text);
+  }
+
+  .link-btn:hover {
+    background: var(--bg-soft);
+    transform: translateY(-1px);
+  }
+
+  .donate-btn {
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .primary-btn,
+  .secondary-btn,
+  .ghost-btn {
+    @apply rounded-full px-6 py-2 font-semibold transition;
+    border: 1px solid transparent;
+  }
+
+  .primary-btn {
+    background: var(--accent-strong);
+    color: var(--bg);
+    box-shadow: var(--shadow);
+  }
+
+  .primary-btn.success {
+    background: var(--success);
+    color: #fff;
+  }
+
+  .primary-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+
+  .secondary-btn {
+    border-color: var(--border);
+    background: transparent;
+    color: var(--text);
+  }
+
+  .ghost-btn {
+    border-color: var(--border);
+    background: transparent;
+    color: var(--text-dim);
+    @apply rounded-lg px-4 py-2;
+  }
+
+  .file-input {
+    display: none;
+  }
+
+  .hero {
+    @apply max-w-5xl mx-auto px-8 py-24 grid gap-12 items-center;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .hero-content h1 {
+    @apply text-4xl font-semibold leading-tight my-4;
+  }
+
+  .hero-content p {
+    color: var(--text-dim);
+    max-width: 520px;
+  }
+
+  .hero-tag {
+    @apply inline-flex rounded-full border px-4 py-1 text-xs;
+    border-color: var(--border);
+    color: var(--text-dim);
+  }
+
+  .hero-actions {
+    @apply flex flex-wrap gap-4 my-8;
+  }
+
+  .hero-links {
+    @apply flex items-center gap-3 text-sm mb-8;
+    color: var(--text-dim);
+  }
+
+  .hero-links a:hover {
+    color: var(--text);
+  }
+
+  .hero-stats {
+    @apply flex flex-wrap gap-4;
+  }
+
+  .stat-card {
+    @apply rounded-2xl border px-6 py-4 min-w-[140px];
+    border-color: var(--border);
+    background: var(--surface);
+  }
+
+  .stat-value {
+    @apply text-2xl font-bold;
+  }
+
+  .stat-label {
+    @apply text-xs;
+    color: var(--text-dim);
+  }
+
+  .hero-preview {
+    @apply flex justify-center;
+  }
+
+  .preview-card {
+    @apply w-full max-w-md rounded-2xl border p-6;
+    border-color: var(--border);
+    background: var(--surface);
+    box-shadow: var(--shadow);
+  }
+
+  .preview-header {
+    @apply font-semibold mb-3;
+  }
+
+  .preview-code {
+    @apply rounded-xl p-4 text-xs;
+    background: var(--code-bg);
+    color: var(--text-dim);
+  }
+
+  .preview-footer {
+    @apply mt-3 text-xs;
+    color: var(--text-dim);
+  }
+
+  .features {
+    @apply max-w-5xl mx-auto px-8 pb-20;
+  }
+
+  .section-title h2 {
+    @apply text-3xl font-semibold mb-2;
+  }
+
+  .section-title p {
+    @apply mb-8;
+    color: var(--text-dim);
+  }
+
+  .feature-grid {
+    @apply grid gap-6;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+
+  .feature-card {
+    @apply rounded-2xl border p-6;
+    border-color: var(--border);
+    background: var(--surface);
+    color: var(--text-dim);
+  }
+
+  .feature-card h3 {
+    @apply text-base font-semibold mb-2;
+    color: var(--text);
+  }
+
+  .editor {
+    @apply max-w-5xl mx-auto px-8 pb-24;
+  }
+
+  .editor-header {
+    @apply flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6 mb-8;
+  }
+
+  .editor-header h2 {
+    @apply text-3xl font-semibold mb-2;
+  }
+
+  .editor-header p {
+    color: var(--text-dim);
+  }
+
+  .editor-actions {
+    @apply flex flex-wrap items-center gap-3;
+  }
+
+  .segmented {
+    @apply inline-flex rounded-full border overflow-hidden;
+    border-color: var(--border);
+  }
+
+  .segmented button {
+    @apply px-4 py-2 text-sm;
+    color: var(--text-dim);
+    background: transparent;
+  }
+
+  .segmented button.active {
+    background: var(--accent-strong);
+    color: var(--bg);
+  }
+
+  .editor-grid {
+    @apply grid gap-6;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .panel {
+    @apply rounded-2xl border p-6 flex flex-col gap-4;
+    border-color: var(--border);
+    background: var(--surface);
+    box-shadow: var(--shadow);
+  }
+
+  .viewer-panel {
+    @apply p-4;
+  }
+
+  .panel-title {
+    @apply flex items-center justify-between text-xs uppercase tracking-widest font-semibold;
+    color: var(--text-dim);
+  }
+
+  .search-input {
+    @apply rounded-lg px-2 py-1 text-xs;
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    color: var(--text);
+  }
+
+  .panel-body {
+    @apply flex-1;
+  }
+
+  .viewer-panel .panel-body {
+    min-height: 520px;
+  }
+
+  .status-dot {
+    @apply w-2.5 h-2.5 rounded-full;
+    background: var(--success);
+  }
+
+  .status-dot.error {
+    background: var(--danger);
+  }
+
+  .json-input {
+    @apply w-full rounded-2xl border p-4 text-sm;
+    background: var(--code-bg);
+    color: var(--text);
+    border-color: var(--border);
+    min-height: 420px;
+    resize: vertical;
+  }
+
+  .json-input.error {
+    border-color: var(--danger);
+  }
+
+  .drop-zone {
+    @apply relative;
+  }
+
+  .drop-zone.active .json-input {
+    outline: 2px dashed var(--accent-strong);
+    outline-offset: 4px;
+  }
+
+  .drop-hint {
+    @apply absolute top-3 right-4 text-xs;
+    color: var(--text-dim);
+    opacity: 0.7;
+    pointer-events: none;
+  }
+
+  .error-banner {
+    @apply flex gap-2 rounded-xl px-4 py-3 text-sm;
+    background: rgba(255, 91, 91, 0.1);
+    color: var(--danger);
+  }
+
+  .export-bar {
+    @apply mt-8 rounded-2xl border px-6 py-5 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4;
+    border-color: var(--border);
+    background: var(--surface);
+  }
+
+  .export-label {
+    @apply font-semibold;
+  }
+
+  .export-hint {
+    @apply text-xs;
+    color: var(--text-dim);
+  }
+
+  .footer {
+    @apply border-t px-8 py-8 flex flex-col lg:flex-row justify-between gap-4 text-sm;
+    border-color: var(--border);
+    color: var(--text-dim);
+  }
+
+  .footer-links {
+    @apply flex items-center gap-2 flex-wrap;
+  }
+}

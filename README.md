@@ -1,16 +1,18 @@
 # 📊 JSON to Excel Converter v2.0
 
-Convertisseur JSON vers Excel avec visualisation en arbre interactif.
-**Version Vite** - Moderne, rapide, sans bugs ! ✨
+Convertisseur JSON vers Excel avec visualisation en arbre et graphe interactif.
+**Vite + MUI (Material UI)** ✨
 
 ## ✨ Fonctionnalités
 
-- ✅ Visualisation JSON en arbre interactif (fait maison)
+- ✅ Visualisation JSON en arbre + graphe interactif
 - ✅ Export vers Excel (.xlsx) en un clic
 - ✅ Aplatissement automatique des objets imbriqués
 - ✅ Interface simple et intuitive
 - ✅ 100% côté client (vos données restent privées)
 - ✅ Responsive (fonctionne sur mobile)
+- ✅ Import JSON + drag & drop
+- ✅ Recherche dans le graphe avec auto-focus
 - ✅ **Aucun bug de dépendances !**
 
 ## 🚀 Installation
@@ -32,7 +34,7 @@ npm install
 npm run dev
 ```
 
-✅ **Le site s'ouvre automatiquement sur http://localhost:3000**
+✅ **Le site est disponible sur http://localhost:3000**
 
 ## 📝 Différences avec la version précédente
 
@@ -58,16 +60,30 @@ npm run preview   # Prévisualiser le build de production
 ## 📦 Structure du projet
 
 ```
-json-to-excel-converter/
-├── index.html                # Page HTML principale
-├── vite.config.js           # Configuration Vite
-├── package.json             # Dépendances
+JsonPulse/
+├── index.html
+├── vite.config.js
+├── package.json
+├── tailwind.config.js
+├── postcss.config.js
 ├── src/
-│   ├── main.jsx            # Point d'entrée
-│   ├── App.jsx             # Composant principal
-│   ├── App.css             # Styles
-│   ├── TreeViewer.jsx      # Arbre JSON (fait maison !)
-│   └── excelConverter.js   # Logique Excel
+│   ├── main.jsx
+│   ├── App.jsx
+│   ├── index.css
+│   ├── styles/
+│   │   ├── variables.css
+│   │   ├── base.css
+│   │   ├── components.css
+│   │   └── layout.css
+│   ├── components/
+│   │   ├── atoms/
+│   │   ├── molecules/
+│   │   └── organisms/
+│   ├── TreeViewer.jsx
+│   ├── TreeViewer.css
+│   ├── JsonTreeView.jsx
+│   ├── JsonTreeView.css
+│   └── excelConverter.js
 └── README.md
 ```
 
@@ -96,18 +112,13 @@ json-to-excel-converter/
 
 ## 🎨 Personnalisation
 
-### Changer les couleurs
+### Thème & styles
 
-Éditez `src/App.css`:
-```css
-.header {
-  background-color: #2c3e50; /* Changez cette couleur */
-}
-
-.export-button {
-  background-color: #27ae60; /* Changez cette couleur */
-}
-```
+Les styles sont organisés par couche :
+- `src/styles/variables.css` (tokens & thèmes)
+- `src/styles/base.css` (reset & base)
+- `src/styles/components.css` (UI)
+- `src/styles/layout.css` (breakpoints)
 
 ### Modifier les textes
 
@@ -132,8 +143,13 @@ Vite utilise ESM (import/export). Assurez-vous d'avoir `"type": "module"` dans p
 
 - **Vite 5** - Build tool ultra-rapide
 - **React 18** - UI framework
+- **Tailwind CSS** - Design system & utilities
 - **ExcelJS** - Génération Excel
 - **File-saver** - Téléchargement fichiers
+
+## 🎨 UI stack (MUI)
+
+We use **MUI** for layout, theming, and components. Custom CSS is kept only for the graph/tree viewers.
 
 ## 🎓 Améliorations futures possibles
 
