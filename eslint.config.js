@@ -27,6 +27,9 @@ export default [
         URL: 'readonly',
         navigator: 'readonly',
         HTMLElement: 'readonly',
+        requestAnimationFrame: 'readonly',
+        cancelAnimationFrame: 'readonly',
+        localStorage: 'readonly',
       },
     },
     settings: {
