@@ -1,4 +1,5 @@
 import * as ExcelJS from 'exceljs';
+import { saveAs } from 'file-saver';
 
 // Couleurs du rapport
 const COLORS = {
